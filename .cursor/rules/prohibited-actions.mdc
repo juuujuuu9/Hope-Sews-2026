@@ -1,0 +1,12 @@
+---
+description: Actions to avoid without explicit user request
+alwaysApply: true
+---
+
+# Prohibited Actions
+
+- Don't implement when requirements are unclear — ask first.
+- No unrequested "nice-to-have" features.
+- Don't pivot tasks without checking with the user.
+- Don't remove working code without clear benefit.
+- No AI tool attribution in commit messages.

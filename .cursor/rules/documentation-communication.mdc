@@ -1,0 +1,10 @@
+---
+description: Docs and communication style
+alwaysApply: true
+---
+
+# Documentation & Communication
+
+- Don't write docs unless asked (README updates when setup/workflows change are OK).
+- Brief explanations for non-obvious logic.
+- Be direct; question incorrect assumptions; self-check on long threads.

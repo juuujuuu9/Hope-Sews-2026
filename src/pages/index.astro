@@ -1,0 +1,105 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Hope Sews — a fashion and mixed media project honoring artisans, nature, textiles, and human stories from around the world."
+		/>
+		<title>Hope Sews</title>
+		<link
+			rel="preload"
+			href="/fonts/NeueHaasDisplay-Roman.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/img/logo-wip7.avif"
+			as="image"
+			type="image/avif"
+		/>
+		<link
+			rel="preload"
+			href="/video/india-collection-1.mp4"
+			as="video"
+			type="video/mp4"
+		/>
+	</head>
+	<body class="font-neue-haas-roman text-white antialiased">
+		<div
+			class="relative flex min-h-dvh items-center justify-center overflow-hidden"
+		>
+			<video
+				class="fixed inset-0 z-0 h-full w-full object-cover"
+				autoplay
+				muted
+				loop
+				playsinline
+				preload="auto"
+				aria-hidden="true"
+				poster="/video/india-collection-1.poster.webp"
+			>
+				<source src="/video/india-collection-1.mp4" type="video/mp4" />
+			</video>
+
+			<div
+				class="pointer-events-none fixed inset-0 z-1 bg-black/12"
+				aria-hidden="true"
+			>
+			</div>
+
+			<main
+				class="relative z-2 flex w-full max-w-[500px] flex-col items-center gap-7 px-6 py-8 text-center"
+			>
+				<h1 class="m-0 mb-1 w-[min(360px,88vw)]">
+					<picture>
+						<source srcset="/img/logo-wip7.avif" type="image/avif" />
+						<source srcset="/img/logo-wip7.webp" type="image/webp" />
+						<img
+							class="block h-auto w-full"
+							src="/img/logo-wip7.webp"
+							alt="Hope Sews"
+							width="1000"
+							height="677"
+							fetchpriority="high"
+							decoding="async"
+						/>
+					</picture>
+				</h1>
+
+				<ul
+					class="font-neue-haas-medium m-0 flex list-none flex-col gap-[0.35rem] p-0 text-[clamp(0.95rem,3.2vw,1.1rem)] tracking-[0.28em] uppercase"
+					aria-label="Core themes"
+				>
+					<li>CULTURE</li>
+					<li>CIRCULAR DESIGN</li>
+					<li>FREEDOM</li>
+				</ul>
+
+				<p
+					class="m-0 max-w-[38ch] text-[clamp(0.8rem,2.6vw,0.95rem)] leading-[1.55] tracking-[0.02em] lowercase"
+				>
+					a fashion and mixed media project honoring artisans, nature,
+					textiles, and human stories from around the world
+				</p>
+
+				<a
+					class="mt-2 text-[0.7rem] tracking-[0.08em] text-inherit no-underline opacity-95 hover:opacity-100 hover:underline hover:underline-offset-[0.2em]"
+					href="https://instagram.com/hope_sews"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					@hope_sews
+				</a>
+			</main>
+		</div>
+	</body>
+</html>

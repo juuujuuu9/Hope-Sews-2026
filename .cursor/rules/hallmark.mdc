@@ -1,0 +1,29 @@
+---
+description: Hallmark anti-slop design — build UI, audit, redesign, study (nutlope/hallmark)
+globs: "**/*.{astro,html,css,tsx,jsx}"
+alwaysApply: false
+---
+
+# Hallmark
+
+When the user asks to **build UI**, **redesign**, **audit design**, **study** a reference (screenshot/URL), or invokes **hallmark** by name:
+
+1. Read and follow [`.cursor/skills/hallmark/SKILL.md`](../skills/hallmark/SKILL.md).
+2. Load reference docs from `.cursor/skills/hallmark/references/` as the skill directs.
+
+## Verbs
+
+| Invocation | Action |
+| --- | --- |
+| *(default)* | New UI — macrostructure, theme, slop test, pre-emit critique |
+| `hallmark audit <target>` | Score anti-patterns; punch list only — **no edits** |
+| `hallmark redesign <target>` | New visual structure; keep copy, IA, routes unless user approves rebuild |
+| `hallmark study <screenshot \| URL>` | Extract design DNA; never pixel-clone templates |
+
+## Hope Sews + Hallmark
+
+- **`media/`** stays source-only; never link in components.
+- **Production assets** go through `npm run optimize:asset` into `public/` before use in pages.
+- Do not delete routes or production files without explicit user approval (Hallmark safety rail + project rules).
+
+MIT · [github.com/Nutlope/hallmark](https://github.com/Nutlope/hallmark)

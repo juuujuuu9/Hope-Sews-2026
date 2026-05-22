@@ -1,0 +1,49 @@
+---
+description: Automatic web optimization when adding images, video, or fonts
+alwaysApply: true
+---
+
+# Media Optimization Workflow
+
+When the user attaches media or asks to add assets to the project:
+
+## 1. Stage source (never ship raw)
+
+- Save originals under `media/{img|video|font|audio|document}/` or `media/incoming/`.
+- Do **not** commit unoptimized blobs to `public/` or link `media/` in components.
+
+## 2. Optimize for production
+
+Run for each new/changed file:
+
+```bash
+npm run optimize:asset -- <path-to-file>
+```
+
+Batch from source tree:
+
+```bash
+npm run optimize:media
+```
+
+Requires `ffmpeg` on PATH for video (poster + H.264 MP4).
+
+## 3. Wire the site
+
+- Reference only optimized URLs under `/` (from `public/`).
+- **Images**: `<picture>` with AVIF → WebP, sensible `width`/`height`, `loading="lazy"` except LCP.
+- **Video**: MP4 in `public/video/`, `poster` WebP/AVIF, `muted` `playsinline` `loop` for backgrounds.
+- **Fonts**: `woff2` in `public/fonts/`, `font-display: swap`, preload only critical weights.
+
+## 4. Report
+
+After optimizing, summarize: source path, output paths, before/after sizes, and recommended markup snippet.
+
+## Targets (defaults in `scripts/optimize-assets.mjs`)
+
+| Type | Output |
+|------|--------|
+| Raster | `.avif` + `.webp`, max width 2560px, auto-rotate |
+| SVG | minified in matching `public/` path |
+| Video | H.264 MP4 (`faststart`) + poster `.webp` and `.avif` |
+| Font | `.woff2` only to `public/fonts/` (skip duplicate TTF/WOFF) |

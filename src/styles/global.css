@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: "Neue Haas Display Black";
+	src: url("/fonts/NeueHaasDisplay-Black.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Black Italic";
+	src: url("/fonts/NeueHaasDisplay-BlackItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Bold";
+	src: url("/fonts/NeueHaasDisplay-Bold.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Bold Italic";
+	src: url("/fonts/NeueHaasDisplay-BoldItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Light";
+	src: url("/fonts/NeueHaasDisplay-Light.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Light Italic";
+	src: url("/fonts/NeueHaasDisplay-LightItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Medium";
+	src: url("/fonts/NeueHaasDisplay-Mediu.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Medium Italic";
+	src: url("/fonts/NeueHaasDisplay-MediumItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Roman";
+	src: url("/fonts/NeueHaasDisplay-Roman.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Roman Italic";
+	src: url("/fonts/NeueHaasDisplay-RomanItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Thin";
+	src: url("/fonts/NeueHaasDisplay-Thin.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display Thin Italic";
+	src: url("/fonts/NeueHaasDisplay-ThinItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display XThin";
+	src: url("/fonts/NeueHaasDisplay-XThin.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display XThin Italic";
+	src: url("/fonts/NeueHaasDisplay-XThinItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display XXThin";
+	src: url("/fonts/NeueHaasDisplay-XXThin.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Neue Haas Display XXThin Italic";
+	src: url("/fonts/NeueHaasDisplay-XXThinItalic.woff2") format("woff2");
+	font-display: swap;
+}
+
+@utility font-neue-haas-black {
+	font-family: "Neue Haas Display Black", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-black-italic {
+	font-family: "Neue Haas Display Black Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-bold {
+	font-family: "Neue Haas Display Bold", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-bold-italic {
+	font-family: "Neue Haas Display Bold Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-light {
+	font-family: "Neue Haas Display Light", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-light-italic {
+	font-family: "Neue Haas Display Light Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-medium {
+	font-family: "Neue Haas Display Medium", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-medium-italic {
+	font-family: "Neue Haas Display Medium Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-roman {
+	font-family: "Neue Haas Display Roman", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-roman-italic {
+	font-family: "Neue Haas Display Roman Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-thin {
+	font-family: "Neue Haas Display Thin", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-thin-italic {
+	font-family: "Neue Haas Display Thin Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-xthin {
+	font-family: "Neue Haas Display XThin", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-xthin-italic {
+	font-family: "Neue Haas Display XThin Italic", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-xxthin {
+	font-family: "Neue Haas Display XXThin", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-neue-haas-xxthin-italic {
+	font-family: "Neue Haas Display XXThin Italic", ui-sans-serif, system-ui, sans-serif;
+}

@@ -1,0 +1,12 @@
+---
+description: Code quality, errors, and maintainability
+alwaysApply: true
+---
+
+# Code Quality
+
+- Self-explanatory code; comments only for non-obvious **why**.
+- Target files under ~300–400 lines; split when clarity improves.
+- Organized imports; SOLID without over-engineering.
+- Preserve existing comments; don't add obvious inline narration.
+- Consider errors, edge cases, and performance; validate inputs; no happy-path-only assumptions.

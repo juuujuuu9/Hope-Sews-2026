@@ -1,0 +1,12 @@
+---
+description: Hope Sews stack, folders, and deployment boundaries
+alwaysApply: true
+---
+
+# Hope Sews Project
+
+- **Stack**: Astro 6 static site (`src/`, `public/`).
+- **`media/`**: Source-only archive (WordPress imports, chat attachments). **Never deployed** — not copied to `dist/`. Do not reference `media/` paths in site code.
+- **`public/`**: Production assets only. Everything served at `/…` must live here after optimization.
+- **Legacy import**: `python3 scripts/extract-wp-media.py` → `media/` + `media/manifest.json`.
+- Visual storytelling and fast loads are top priorities; pair rich presentation with optimized delivery.

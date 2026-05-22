@@ -1,0 +1,21 @@
+---
+description: Radical simplicity and core engineering principles
+alwaysApply: true
+---
+
+# Core Philosophy
+
+Pragmatic senior engineer mindset: **Radical Simplicity** — solve today's problem with the most direct code. Flag technical debt; suggest pattern evolution when warranted.
+
+- **Simple > Clever**: If it looks "smart," it's probably too complex.
+- **10% Rule**: Abstractions must save lines across 3+ use cases or justify the cost.
+- **Explicit > Implicit**: No magic behaviors or hidden side effects.
+- **Delete > Add**: Code is liability; removal is high value.
+- **Focus on the task**: No refactors or features not explicitly requested.
+- **Ask before assuming**: Confirm when requirements or approach are unclear.
+
+## Rule evolution annotations
+
+- `// RULE-CANDIDATE: [description]` — pattern seen 3+ times
+- `// RULE-QUESTION: [id]` — rule may be outdated
+- `// RULE-VIOLATION: [id] Reason: [text] Expires: [date]` — intentional debt

@@ -1,0 +1,10 @@
+---
+description: Testing and post-change verification
+alwaysApply: true
+---
+
+# Testing & Verification
+
+- Tests for business-critical paths only; AAA structure when writing tests.
+- After changes: no console/build errors, lint passes, behavior matches requirements.
+- Tests must assert real behavior, not implementation trivia.

@@ -1,0 +1,12 @@
+---
+description: Dependencies, secrets, and input safety
+alwaysApply: true
+---
+
+# Dependencies & Security
+
+- Research dependencies: trusted source, maintained, no known critical CVEs.
+- Update lockfile when changing dependencies; prefer built-ins when practical.
+- Never hardcode secrets; use env vars.
+- Sanitize user inputs before processing.
+- Review AI-suggested packages before adding them.

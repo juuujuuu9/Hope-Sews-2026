@@ -1,0 +1,17 @@
+---
+description: Search, reuse, and plan before implementing
+alwaysApply: true
+---
+
+# Planning & Architecture
+
+## Before writing code
+
+1. **Search first** — Find existing functionality, patterns, and utilities.
+2. **Reuse first** — Extend what exists; smallest possible diff.
+3. **Plan before coding** — For non-trivial work, explain approach first.
+4. **Challenge assumptions** — Call out flaws, risks, and better options directly.
+
+## Execution sequence
+
+SEARCH → REUSE → NO ASSUMPTIONS (only files read, user messages, tool results) → CHALLENGE → BE HONEST about gaps and blockers.

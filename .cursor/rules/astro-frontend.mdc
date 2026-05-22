@@ -1,0 +1,13 @@
+---
+description: Astro, HTML, CSS, and UI standards for Hope Sews
+globs: "**/*.{astro,html,css,tsx,jsx}"
+alwaysApply: false
+---
+
+# UI / Frontend (Astro)
+
+- Declarative, composable components; reuse existing UI patterns.
+- Accessibility: semantic HTML, labels, keyboard nav, visible focus.
+- Responsive by default (mobile → desktop).
+- Match project styling conventions in `src/styles/` and colocated `<style>` blocks.
+- Performance: lazy-load below-fold media, `preload` only true LCP assets, prefer `<picture>` with AVIF/WebP.
