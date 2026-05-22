@@ -1,0 +1,79 @@
+---
+---
+
+<div
+	class="email-signup mt-1 w-full max-w-[22rem]"
+	data-state="idle"
+	data-email-signup
+>
+	<p
+		class="font-neue-haas-medium m-0 mb-3 text-[0.65rem] tracking-[0.32em] uppercase"
+	>
+		stay in touch
+	</p>
+
+	<form
+		class="flex flex-col gap-2"
+		action="/api/contact"
+		method="post"
+		novalidate
+	>
+		<label class="sr-only" for="signup-email">Email</label>
+		<input
+			id="signup-email"
+			class="email-signup__input w-full border border-white/35 bg-black/25 px-3 py-2 text-center text-[0.85rem] tracking-[0.04em] text-white outline-none backdrop-blur-[2px] placeholder:text-white/55 focus:border-white/70"
+			type="email"
+			name="email"
+			autocomplete="email"
+			placeholder="your@email.com"
+			required
+		/>
+
+		<label class="sr-only" for="signup-website">Leave blank</label>
+		<input
+			id="signup-website"
+			class="email-signup__honeypot"
+			type="text"
+			name="website"
+			tabindex="-1"
+			autocomplete="off"
+		/>
+
+		<button
+			type="submit"
+			class="font-neue-haas-medium cursor-pointer border border-white/50 bg-transparent px-3 py-2 text-[0.7rem] tracking-[0.28em] uppercase text-white transition hover:border-white hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60"
+		>
+			join the list
+		</button>
+	</form>
+
+	<p
+		class="email-signup__status m-0 min-h-[1.25rem] pt-2 text-[0.75rem] leading-snug tracking-[0.02em] lowercase text-white/90"
+		data-signup-status
+		aria-live="polite"
+	></p>
+</div>
+
+<style>
+	.email-signup__honeypot {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.email-signup[data-state="success"] .email-signup__input,
+	.email-signup[data-state="success"] button {
+		opacity: 0.75;
+	}
+</style>
+
+<script>
+	import { initEmailSignupForm } from "../scripts/email-signup-form";
+
+	for (const root of document.querySelectorAll<HTMLElement>("[data-email-signup]")) {
+		initEmailSignupForm(root);
+	}
+</script>

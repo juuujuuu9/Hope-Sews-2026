@@ -14,7 +14,10 @@
     "optimize:media": "node scripts/optimize-assets.mjs media"
   },
   "dependencies": {
-    "astro": "^6.3.7"
+    "@astrojs/vercel": "^10.0.7",
+    "@supabase/supabase-js": "^2.106.1",
+    "astro": "^6.3.7",
+    "resend": "^6.12.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.0",

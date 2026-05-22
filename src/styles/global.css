@@ -159,3 +159,17 @@
 @utility font-neue-haas-xxthin-italic {
 	font-family: "Neue Haas Display XXThin Italic", ui-sans-serif, system-ui, sans-serif;
 }
+
+/* Background videos: no native controls / iOS play overlay */
+[data-background-video] {
+	pointer-events: none;
+}
+
+[data-background-video]::-webkit-media-controls {
+	display: none !important;
+}
+
+[data-background-video]::-webkit-media-controls-start-playback-button {
+	display: none !important;
+	-webkit-appearance: none;
+}

@@ -1,4 +1,8 @@
 ---
+export const prerender = true;
+
+import BackgroundVideo from "../components/BackgroundVideo.astro";
+import EmailSignupForm from "../components/EmailSignupForm.astro";
 import "../styles/global.css";
 ---
 
@@ -37,18 +41,12 @@ import "../styles/global.css";
 		<div
 			class="relative flex min-h-dvh items-center justify-center overflow-hidden"
 		>
-			<video
+			<BackgroundVideo
+				src="/video/india-collection-1.mp4"
 				class="fixed inset-0 z-0 h-full w-full object-cover"
-				autoplay
-				muted
-				loop
-				playsinline
 				preload="auto"
-				aria-hidden="true"
-				poster="/video/india-collection-1.poster.webp"
-			>
-				<source src="/video/india-collection-1.mp4" type="video/mp4" />
-			</video>
+				fetchPriority="high"
+			/>
 
 			<div
 				class="pointer-events-none fixed inset-0 z-1 bg-black/12"
@@ -90,6 +88,8 @@ import "../styles/global.css";
 					a fashion and mixed media project honoring artisans, nature,
 					textiles, and human stories from around the world
 				</p>
+
+				<EmailSignupForm />
 
 				<a
 					class="mt-2 text-[0.7rem] tracking-[0.08em] text-inherit no-underline opacity-95 hover:opacity-100 hover:underline hover:underline-offset-[0.2em]"

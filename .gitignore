@@ -31,3 +31,5 @@ pnpm-debug.log*
 
 # Source-only media archive (WordPress imports, originals — not deployed)
 media/
+.vercel
+.env*

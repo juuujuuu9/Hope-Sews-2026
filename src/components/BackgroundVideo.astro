@@ -1,0 +1,39 @@
+---
+interface Props {
+	src: string;
+	poster?: string;
+	class?: string;
+	preload?: "auto" | "metadata" | "none";
+	fetchPriority?: "high" | "low" | "auto";
+}
+
+const {
+	src,
+	poster = src.replace(/\.mp4$/i, ".poster.webp"),
+	class: className = "",
+	preload = "auto",
+	fetchPriority,
+} = Astro.props;
+---
+
+<video
+	data-background-video
+	class={className}
+	autoplay
+	muted
+	defaultMuted
+	loop
+	playsinline
+	preload={preload}
+	poster={poster}
+	disablePictureInPicture
+	controlslist="nodownload nofullscreen noremoteplayback"
+	aria-hidden="true"
+	fetchpriority={fetchPriority}
+>
+	<source src={src} type="video/mp4" />
+</video>
+
+<script>
+	import "../scripts/init-background-videos.ts";
+</script>
