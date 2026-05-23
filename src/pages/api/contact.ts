@@ -1,8 +1,8 @@
 import type { APIRoute } from "astro";
 import {
 	parseContactPayload,
-	saveContactSubmission,
-	sendContactEmails,
+	saveSubscriber,
+	sendSubscriberEmails,
 } from "../../lib/contact";
 
 export const prerender = false;
@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 	let duplicate = false;
 	try {
-		({ duplicate } = await saveContactSubmission(payload.email));
+		({ duplicate } = await saveSubscriber(payload.email));
 	} catch (err) {
 		console.error("[contact] supabase insert failed", err);
 		return json({ ok: false, error: "storage_failed" }, 500);
@@ -36,10 +36,12 @@ export const POST: APIRoute = async ({ request }) => {
 
 	if (!duplicate) {
 		try {
-			await sendContactEmails(payload.email);
+			await sendSubscriberEmails(payload.email);
 		} catch (err) {
 			console.error("[contact] resend failed (submission saved)", err);
 		}
+	} else {
+		console.info("[contact] duplicate signup, emails skipped", payload.email);
 	}
 
 	return json({ ok: true }, 200);
