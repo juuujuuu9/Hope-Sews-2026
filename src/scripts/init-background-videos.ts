@@ -4,10 +4,15 @@ function prefersReducedMotion(): boolean {
 	return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+function setPlayingVisible(video: HTMLVideoElement, playing: boolean): void {
+	video.classList.toggle("is-playing", playing);
+}
+
 function playBackgroundVideo(video: HTMLVideoElement): void {
 	if (prefersReducedMotion()) {
 		video.pause();
 		video.removeAttribute("autoplay");
+		setPlayingVisible(video, false);
 		return;
 	}
 
@@ -15,12 +20,18 @@ function playBackgroundVideo(video: HTMLVideoElement): void {
 	video.muted = true;
 	video.setAttribute("muted", "");
 	video.playsInline = true;
+	video.setAttribute("playsinline", "");
+	video.setAttribute("webkit-playsinline", "");
 	video.controls = false;
 	video.removeAttribute("controls");
 
 	const playPromise = video.play();
 	if (playPromise !== undefined) {
-		playPromise.catch(() => {});
+		playPromise
+			.then(() => {
+				if (!video.paused) setPlayingVisible(video, true);
+			})
+			.catch(() => setPlayingVisible(video, false));
 	}
 }
 
@@ -35,6 +46,13 @@ function bindBackgroundVideo(video: HTMLVideoElement): void {
 			passive: true,
 		});
 	}
+
+	video.addEventListener("playing", () => setPlayingVisible(video, true), {
+		passive: true,
+	});
+	video.addEventListener("pause", () => setPlayingVisible(video, false), {
+		passive: true,
+	});
 
 	document.addEventListener("visibilitychange", () => {
 		if (!document.hidden) playBackgroundVideo(video);

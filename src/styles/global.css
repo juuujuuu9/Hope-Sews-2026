@@ -160,15 +160,24 @@
 	font-family: "Neue Haas Display XXThin Italic", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Background videos: no native controls / iOS play overlay */
-[data-background-video] {
+/* Background videos: poster until playing (avoids iOS play overlay on pause) */
+[data-background-video-host] {
 	pointer-events: none;
 }
 
-[data-background-video]::-webkit-media-controls {
-	display: none !important;
+[data-background-video] {
+	pointer-events: none;
+	opacity: 0;
 }
 
+[data-background-video].is-playing {
+	opacity: 1;
+}
+
+[data-background-video]::-webkit-media-controls,
+[data-background-video]::-webkit-media-controls-enclosure,
+[data-background-video]::-webkit-media-controls-panel,
+[data-background-video]::-webkit-media-controls-play-button,
 [data-background-video]::-webkit-media-controls-start-playback-button {
 	display: none !important;
 	-webkit-appearance: none;

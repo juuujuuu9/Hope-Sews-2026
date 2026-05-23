@@ -16,23 +16,29 @@ const {
 } = Astro.props;
 ---
 
-<video
-	data-background-video
-	class={className}
-	autoplay
-	muted
-	defaultMuted
-	loop
-	playsinline
-	preload={preload}
-	poster={poster}
-	disablePictureInPicture
-	controlslist="nodownload nofullscreen noremoteplayback"
+<div
+	data-background-video-host
+	class:list={["fixed inset-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat", className]}
+	style={`background-image: url('${poster}')`}
 	aria-hidden="true"
-	fetchpriority={fetchPriority}
 >
-	<source src={src} type="video/mp4" />
-</video>
+	<video
+		data-background-video
+		class="absolute inset-0 h-full w-full object-cover"
+		autoplay
+		muted
+		loop
+		playsinline
+		webkit-playsinline
+		preload={preload}
+		poster={poster}
+		disablePictureInPicture
+		controlslist="nodownload nofullscreen noremoteplayback"
+		fetchpriority={fetchPriority}
+	>
+		<source src={src} type="video/mp4" />
+	</video>
+</div>
 
 <script>
 	import "../scripts/init-background-videos.ts";
