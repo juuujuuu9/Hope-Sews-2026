@@ -9,11 +9,22 @@ export default defineConfig({
 	adapter: vercel(),
 	vite: {
 		plugins: [tailwindcss()],
+		server: {
+			cors: true,
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+				'Access-Control-Allow-Headers': '*',
+			},
+		},
 	},
 	devToolbar: {
 		enabled: false,
 	},
 	security: {
 		checkOrigin: false,
+	},
+	server: {
+		allowedHosts: 'all',
 	},
 });
