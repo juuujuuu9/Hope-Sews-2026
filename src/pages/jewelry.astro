@@ -1,0 +1,90 @@
+---
+export const prerender = true;
+
+import JewelryPdpSection from "../components/JewelryPdpSection.astro";
+import "../styles/global.css";
+
+const navItems = [
+	{ label: "Shop", href: "#shop" },
+	{ label: "About", href: "#about" },
+	{ label: "Social Impact", href: "#social-impact" },
+	{ label: "Info", href: "#info" },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Hope Sews — a fashion and mixed media project honoring artisans, nature, textiles, and human stories from around the world."
+		/>
+		<title>Hope Sews — Jewelry</title>
+		<link
+			rel="preload"
+			href="/fonts/InterVariable.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/img/hero-background.avif"
+			as="image"
+			type="image/avif"
+		/>
+	</head>
+	<body class="bg-white font-sans antialiased">
+		<section
+			class="relative isolate h-[95vh] w-full overflow-hidden"
+			aria-label="Hope Sews hero"
+		>
+			<picture class="absolute inset-0 z-0 block h-full w-full">
+				<source srcset="/img/hero-background.avif" type="image/avif" />
+				<source srcset="/img/hero-background.webp" type="image/webp" />
+				<img
+					class="h-full w-full object-cover object-top"
+					src="/img/hero-background.webp"
+					alt=""
+					width="735"
+					height="535"
+					fetchpriority="high"
+					decoding="async"
+				/>
+			</picture>
+
+			<nav
+				class="absolute top-0 left-0 z-10 p-8"
+				aria-label="Primary"
+			>
+				<ul
+					class="m-0 flex list-none flex-wrap gap-x-8 gap-y-2 p-0 text-[clamp(0.75rem,2vw,0.95rem)] font-bold tracking-[0.12em] uppercase"
+				>
+					{
+						navItems.map(({ label, href }) => (
+							<li>
+								<a
+									class="text-black no-underline transition-colors duration-300 ease-in-out hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[0.35em] focus-visible:outline-black/40"
+									href={href}
+								>
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<h1
+				class="absolute inset-x-0 top-[calc(28%-7rem)] m-0 px-6 text-center text-[clamp(2.1rem,8.4vw,5.4rem)] font-black leading-[0.92] tracking-[0.04em] text-black uppercase"
+			>
+				Hope Sews
+			</h1>
+		</section>
+
+		<JewelryPdpSection />
+	</body>
+</html>

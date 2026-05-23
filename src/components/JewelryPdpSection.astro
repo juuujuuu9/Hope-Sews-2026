@@ -1,0 +1,122 @@
+---
+interface Props {
+	name?: string;
+	materials?: string;
+	description?: string;
+	detailsHref?: string;
+	detailsLabel?: string;
+	imageBase?: string;
+	imageAlt?: string;
+	imageWidth?: number;
+	imageHeight?: number;
+	galleryCount?: number;
+}
+
+const {
+	name = "Jewelry Name",
+	materials = "materials",
+	description = `Ajrak is a traditional block-printed cotton fabric from the Sindh region of Pakistan and India. It is known for its intricate geometric and floral patterns, typically in deep indigo and red hues. The fabric is often used in garments and accessories, and is a symbol of cultural heritage and craftsmanship.`,
+	detailsHref = "#necklace-details",
+	detailsLabel = "Necklace Details",
+	imageBase = "/img/jewelry-necklace",
+	imageAlt = "Ornate silver statement necklace with colorful enamel inlay",
+	imageWidth = 683,
+	imageHeight = 1024,
+	galleryCount = 3,
+} = Astro.props;
+
+const galleryItems = Array.from({ length: galleryCount }, (_, index) => index);
+---
+
+<section
+	class="border-t border-black/10 bg-white pt-16 text-black"
+	aria-label={`${name} product details`}
+>
+	<div class="mx-auto max-w-[900px]">
+		<div
+			class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
+		>
+			<div class="px-6 md:px-0">
+				<div class="bg-[#e8e8e8]">
+					<picture class="block aspect-[4/5] w-full md:aspect-auto md:min-h-[min(72vh,820px)]">
+						<source srcset={`${imageBase}.avif`} type="image/avif" />
+						<source srcset={`${imageBase}.webp`} type="image/webp" />
+						<img
+							class="h-full w-full object-cover object-center"
+							src={`${imageBase}.webp`}
+							alt={imageAlt}
+							width={imageWidth}
+							height={imageHeight}
+							loading="lazy"
+							decoding="async"
+						/>
+					</picture>
+				</div>
+			</div>
+
+			<div
+				class="hidden md:ml-8 md:flex md:self-stretch"
+				aria-hidden="true"
+			>
+				<div class="w-px bg-black"></div>
+			</div>
+
+			<div class="flex flex-col gap-10 px-6 py-8 md:px-10 md:py-10 lg:px-14">
+				<p
+					class="m-0 max-w-[42ch] text-[clamp(0.85rem,1.6vw,1rem)] leading-[1.65] tracking-[0.01em]"
+				>
+					{description}
+				</p>
+
+				<button
+					type="button"
+					class="w-fit cursor-pointer border-0 bg-transparent p-0 text-[clamp(1.125rem,2.1vw,1.35rem)] font-normal tracking-[0.14em] uppercase transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[0.35em] focus-visible:outline-black/40"
+				>
+					Add to Cart
+				</button>
+			</div>
+		</div>
+
+		<div class="px-6 py-8 md:px-0 md:py-10">
+			<div class="md:max-w-[50%]">
+				<h2
+					class="m-0 text-[2rem] font-normal tracking-[0.08em] uppercase"
+				>
+					{name}
+				</h2>
+				<p class="m-0 mt-1 text-base lowercase tracking-[0.02em]">
+					{materials}
+				</p>
+			</div>
+
+			<div class="mt-[20px] flex items-end gap-6 md:gap-10">
+				<a
+					class="shrink-0 text-[clamp(1.125rem,2.1vw,1.35rem)] font-normal tracking-[0.14em] text-black uppercase no-underline transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[0.35em] focus-visible:outline-black/40"
+					href={detailsHref}
+				>
+					{detailsLabel} →
+				</a>
+
+				<div class="grid grid-cols-3 gap-3 md:gap-4">
+					{
+						galleryItems.map((index) => (
+							<picture class="block bg-[#e8e8e8]">
+								<source srcset={`${imageBase}.avif`} type="image/avif" />
+								<source srcset={`${imageBase}.webp`} type="image/webp" />
+								<img
+									class="aspect-[3/4] h-full w-[min(6.875rem,27.5vw)] object-cover object-center md:w-[min(8.125rem,15vw)]"
+									src={`${imageBase}.webp`}
+									alt={`${imageAlt} — view ${index + 1}`}
+									width={imageWidth}
+									height={imageHeight}
+									loading="lazy"
+									decoding="async"
+								/>
+							</picture>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
