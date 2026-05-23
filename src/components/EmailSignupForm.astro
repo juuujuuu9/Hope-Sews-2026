@@ -49,6 +49,17 @@
 </div>
 
 <style>
+	.email-signup__input:-webkit-autofill,
+	.email-signup__input:-webkit-autofill:hover,
+	.email-signup__input:-webkit-autofill:focus,
+	.email-signup__input:-webkit-autofill:active {
+		-webkit-box-shadow: 0 0 0 1000px transparent inset;
+		box-shadow: 0 0 0 1000px transparent inset;
+		-webkit-text-fill-color: white;
+		caret-color: white;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+
 	.email-signup__honeypot {
 		position: absolute;
 		left: -9999px;
